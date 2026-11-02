@@ -1,6 +1,7 @@
 import argparse
 
 from ip_resolver.graph import build_domain_graph
+from ip_resolver.models import DomainFlowState
 
 def parse_port(value: str) -> int:
     try:
@@ -30,7 +31,7 @@ def main(arguments: list[str] | None = None) -> int:
     )
     args = parser.parse_args(arguments)
 
-    initial_state = {
+    initial_state: DomainFlowState = {
         "original_input": args.hostname,
         "normalized_hostname": args.hostname,
         "errors": [],
