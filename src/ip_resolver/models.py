@@ -1,25 +1,26 @@
-from typing import TypedDict
+from typing import TypedDict, NotRequired
 
 
-class DomainFlowState(TypedDict, total=False):
+class DomainFlowState(TypedDict):
     original_input: str
     normalized_hostname: str
+    port: NotRequired[int]
 
-    tld: str
-    tld_syntax_valid: bool
-    tld_exists: bool
+    tld: NotRequired[str]
+    tld_syntax_valid: NotRequired[bool]
+    tld_exists: NotRequired[bool]
 
-    site_name: str
-    site_name_syntax_valid: bool
-    site_name_exists: bool
+    site_name: NotRequired[str]
+    site_name_syntax_valid: NotRequired[bool]
+    site_name_exists: NotRequired[bool]
 
-    ip_addresses: list[str]
-    valid_ip_addresses: list[str]
-    reachable_ip_addresses: list[str]
+    ip_addresses: NotRequired[list[str]]
+    valid_ip_addresses: NotRequired[list[str]]
+    reachable_ip_addresses: NotRequired[list[str]]
 
-    ip_syntax_valid: bool
-    ip_exists: bool
+    ip_syntax_valid: NotRequired[bool]
+    ip_exists: NotRequired[bool]
 
     errors: list[str]
-    status: str
-    current_stage: str
+    status: NotRequired[str]
+    current_stage: NotRequired[str]
